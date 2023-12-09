@@ -50,13 +50,26 @@ function Header() {
     </header>
   );
 }
+// Using props
 
-function CoreComponent(props) {
+// function CoreComponent(props) {
+//   return (
+//     <li>
+//       <img src={props.image} alt="Component Image" />
+//       <h3>{props.title}</h3>
+//       <p>{props.description}</p>
+//     </li>
+//   );
+// }
+
+
+//Using Destructuring method
+function CoreComponent({image, title, description}) {
   return (
     <li>
-      <img src={props.image} alt="Component Image" />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={image} alt="Component Image" />
+      <h3>{title}</h3>
+      <p>{description}</p>
     </li>
   );
 }
@@ -69,30 +82,27 @@ function App() {
         <section id="core-concepts">
         <h2>Time to get started!</h2>
         <ul>
+
           <CoreComponent
-          title = {CORE_CONCEPTS[0].title}
-          description = {CORE_CONCEPTS[0].description}
-          image = {CORE_CONCEPTS[0].image}
+          {...CORE_CONCEPTS[0]}
           />
 
           <CoreComponent          
-          title = {CORE_CONCEPTS[1].title}
-          description = {CORE_CONCEPTS[1].description}
-          image = {CORE_CONCEPTS[1].image}
+          {...CORE_CONCEPTS[1]}
           />
-          <CoreComponent
-          title = {CORE_CONCEPTS[2].title}
-          description = {CORE_CONCEPTS[2].description}
-          image = {CORE_CONCEPTS[2].image}
+
+          <CoreComponent          
+          {...CORE_CONCEPTS[2]}
           />
+
           <CoreComponent
           title = {CORE_CONCEPTS[3].title}
           description = {CORE_CONCEPTS[3].description}
           image = {CORE_CONCEPTS[3].image}
           />
+
         </ul>
-        </section>
-        
+        </section> 
       </main>
     </div>
   );
