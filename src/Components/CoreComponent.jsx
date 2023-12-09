@@ -1,3 +1,4 @@
+import './CoreComponent.css'
 // Using props method
 export default function CoreComponent(props) {
   return (
