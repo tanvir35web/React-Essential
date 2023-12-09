@@ -19,9 +19,21 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 2rem 16rem;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+#core-concepts {
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: #15071d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  list-style: none;
+}
+img {
+  width: 100px;
 }
