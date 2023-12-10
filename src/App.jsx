@@ -21,27 +21,18 @@ function App() {
         <h2>Time to get started!</h2>
         <ul>
 
-          <CoreComponent {...CORE_CONCEPTS[0]} />
-
-          <CoreComponent {...CORE_CONCEPTS[1]} />
-
-          <CoreComponent {...CORE_CONCEPTS[2]} />
-
-          <CoreComponent
-          image = {CORE_CONCEPTS[3].image}
-          title = {CORE_CONCEPTS[3].title}
-          description = {CORE_CONCEPTS[3].description}
-          />
+          {CORE_CONCEPTS.map((item)=>(<CoreComponent key={item.title} {...item} />))}
+             
         </ul>
         </section> 
 
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')}>Component</TabButton>
-            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            <TabButton isSelected={selectedTopic === "components"} onSelect={() => handleSelect('components')}>Component</TabButton>
+            <TabButton isSelected={selectedTopic === "jsx"} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton isSelected={selectedTopic === "props"} onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton isSelected={selectedTopic === "state"} onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
          
     {/* Conditionally check first with ternary operator */}
