@@ -3,15 +3,14 @@ import Header from './Components/Header';
 import CoreComponent from './Components/CoreComponent';
 import TabButton from './Components/TabButton';
 import { useState } from 'react';
-import {EXAMPLES} from './data-with-examples'
+import {EXAMPLES} from './data-with-examples';
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState('components');
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function handleSelect(selectedButton) {
     //selected Button => 'component', 'jsx', 'props', 'state'
     setSelectedTopic(selectedButton);
-    console.log(selectedTopic);
   }
 
   return (
@@ -39,13 +38,16 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('component')}>Component</TabButton>
+            <TabButton onSelect={() => handleSelect('components')}>Component</TabButton>
             <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
          
-          <div id='tab-content'>
+    {/* Conditionally check first with ternary operator */}
+
+         {!selectedTopic ? (<p> Please Select a topic </p>) : 
+         ( <div id='tab-content'>
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
             <pre>
@@ -53,7 +55,8 @@ function App() {
               {EXAMPLES[selectedTopic].code}
               </code>
             </pre>
-          </div>
+          </div> )}
+          
         </section>
       </main>
     </div>
